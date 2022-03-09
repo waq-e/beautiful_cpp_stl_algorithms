@@ -1,0 +1,8 @@
+# Project exclude paths
+/cmake-build-debug/
+/.idea/beautiful_cpp_stl_algorithms.iml
+/.idea/.gitignore
+/.idea/active-tab-highlighter.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
