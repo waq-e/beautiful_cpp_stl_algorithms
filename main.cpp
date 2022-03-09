@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 // Headers you should know:
 //      <algorithm>
@@ -21,9 +22,33 @@ int main() {
 	}
 	std::cout << "value of twos: " << twos << '\n';
 	// using <algorithm> to do above
-	int simple = std::count(v.begin(), v.end(), target);
-	std::cout << "value of simple: " << simple << '\n';
+	twos = std::count(v.begin(), v.end(), target);
+	// twos = std::count(begin(v), end(v), target);
+	std::cout << "value of twos: " << twos << '\n';
+	// Section 2 Section 2 Section 2 Section 2 Section 2 Section 2 Section 2 Section 2 Section 2
+	// =========================================================================================
+	//      Member                  |               Nonmember
+	// v.begin(), v.end()           | begin(v), end(v)
+	//                              |
+	// works for all collections    | works for all collections + c-style arrays
+	//                              |
+	//                              | you can write a free function for a collection
+	//                              | without member begin() and end()
+	//                              |
+	//                              | safest choice and good habit
 
+	// Section 3 Section 3 Section 3 Section 3 Section 3 Section 3 Section 3 Section 3 Section 3
+	// =========================================================================================
+	// count how many entries in collection meet a (any) condition (ie, filter):
+	int odds{0};
+	for (auto elem: v) {
+		if (elem % 2 != 0) odds++;
+	}
+	std::cout << "value of odds: " << odds << '\n';
+	// using <algorithm> to do above
+	odds = std::count_if(begin(v), end(v),
+						 [](auto elem) { return elem % 2 != 0;});
+	std::cout << "value of odds: " << odds << '\n';
 
 
 	return 0;
