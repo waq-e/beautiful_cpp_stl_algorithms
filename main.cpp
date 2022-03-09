@@ -59,6 +59,23 @@ int main() {
 	int longMonths = std::count_if(begin(monthLengths), end(monthLengths),
 								   [](auto elem) { return elem.second == 31; });
 	std::cout << "longMonths = " << longMonths << '\n';
+	// Section 5 Section 5 Section 5 Section 5 Section 5 Section 5 Section 5 Section 5 Section 5
+	// =========================================================================================
+	// Why counting?
+	//      Are all elements odd, equal to zero, or high priority?
+	//      Are any of the elements odd, equal to zero, etc.
+	//      Are none of the elements odd, ...
+	std::vector<int> v2{ 2,7,1,6,2,-2,4,0 };
+	bool allof = std::all_of(begin(v2), end(v2),
+	                         [](auto elem) { return elem % 2 != 0; });
+	bool noneof = std::none_of(begin(v2), end(v2),
+	                         [](auto elem) { return elem % 2 != 0; });
+	bool anyof = std::any_of(begin(v2), end(v2),
+	                         [](auto elem) { return elem % 2 != 0; });
+	// Section 6 Section 6 Section 6 Section 6 Section 6 Section 6 Section 6 Section 6 Section 6
+	// =========================================================================================
+
+
 
 	return 0;
 }
