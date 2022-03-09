@@ -74,8 +74,19 @@ int main() {
 	                         [](auto elem) { return elem % 2 != 0; });
 	// Section 6 Section 6 Section 6 Section 6 Section 6 Section 6 Section 6 Section 6 Section 6
 	// =========================================================================================
-
-
+	std::vector<int> v3{ 2, 4, 6, 6, 1, 3, -2, 0, 11, 2, 3, 2, 4, 4, 2, 4 };
+	std::string s{"Hello I am a sentence"};
+	// find the first zero in the collection
+	auto result = find(begin(v3), end(v3), 0);
+	int weLookedFor = *result;  // result is a point to that element (found it)
+	std::cout << "weLookedFor " << weLookedFor << '\n';
+	result = std::find(result, end(v3), 2);  // search from 0 found forward
+	if (result != end(v3)) {  // can only dereference result if element found!  otherwise result invalid pointer!
+		weLookedFor = *result;
+	}
+	auto letter = std::find(begin(s), end(s), 'a');
+	char a = *letter;
+	std::cout << "a = " << a << '\n';
 
 	return 0;
 }
