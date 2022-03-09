@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <map>
 
 // Headers you should know:
 //      <algorithm>
@@ -49,7 +50,15 @@ int main() {
 	odds = std::count_if(begin(v), end(v),
 						 [](auto elem) { return elem % 2 != 0;});
 	std::cout << "value of odds: " << odds << '\n';
-
+	// Section 4 Section 4 Section 4 Section 4 Section 4 Section 4 Section 4 Section 4 Section 4
+	// =========================================================================================
+	// count how many entries in collection meet a (any) condition (ie, filter):
+	// repeating what is done above, on a map
+	std::map<int, int> monthLengths{{1,31},{2,28},{3,31},{4,30},{5,31},{6,30},{7,31},{8,31},{9,30},
+									{10,31},{11,30},{12,31}};
+	int longMonths = std::count_if(begin(monthLengths), end(monthLengths),
+								   [](auto elem) { return elem.second == 31; });
+	std::cout << "longMonths = " << longMonths << '\n';
 
 	return 0;
 }
