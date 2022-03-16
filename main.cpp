@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include "Employee.h"
 
 // Headers you should know:
 //      <algorithm>
@@ -110,6 +111,46 @@ int main() {
 	vcopy = vsort;
 	sort(begin(vcopy), end(vcopy),     // -9 9 7 -6 4 3 -2 2 1 1 0 0 0
 	     [](int elem1, int elem2) { return abs(elem1) > abs(elem2); });
+
+
+	std::vector<Employee> staff{
+				{"Kate", "Gregory", 1000 },
+				{"Obvious", "Artificial", 2000 },
+				{"Fake", "Name", 1000 },
+				{"Alan", "Turing", 2000 },
+				{"Grace", "Hopper", 2000 },
+				{"Anita", "Borg", 2000 }
+	};
+
+	// below works only if operator< defined for Employee
+	//std::sort(begin(staff), end(staff));
+	std::sort(begin(staff), end(staff),
+	          [](Employee e1, Employee e2)
+	          { return e1.getSalaray() < e2.getSalaray(); });
+	for ( auto emp : staff ) {
+		std::cout << emp.getSortingName() << "\t" << emp.getSalaray() << '\n';
+	}
+
+	std::cout << "\n\n";
+	std::sort(begin(staff), end(staff),
+	          [](Employee e1, Employee e2)
+	          { return e1.getSortingName() < e2.getSortingName(); });
+	for ( auto emp : staff ) {
+		std::cout << emp.getSortingName() << "\t" << emp.getSalaray() << '\n';
+	}
+
+	std::cout << "\n\n";
+	std::sort(begin(staff), end(staff),
+	          [](Employee e1, Employee e2)
+	          { return e1.getSortingName() < e2.getSortingName(); });
+	std::stable_sort(begin(staff), end(staff),
+	                 [](Employee e1, Employee e2)
+	                 { return e1.getSalaray() < e2.getSalaray(); });
+	for ( auto emp : staff ) {
+		std::cout << emp.getSortingName() << "\t" << emp.getSalaray() << '\n';
+	}
+
+	// left off on video 20160630210634_4  Beautiful C++ STL Algorithms
 
 	return 0;
 }
