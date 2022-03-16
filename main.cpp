@@ -87,6 +87,29 @@ int main() {
 	auto letter = std::find(begin(s), end(s), 'a');
 	char a = *letter;
 	std::cout << "a = " << a << '\n';
+	// Section 7 Section 7 Section 7 Section 7 Section 7 Section 7 Section 7 Section 7 Section 7
+	// =========================================================================================
+	// find_if_not      find first element not matching
+	// find_first_of    find first occurence of two elements
+	// search           find a sequence
+	// find_end         search for last
+	// search_n         search for n occurances of
+	// adjacent_find    find to consecutive occurances of
+
+
+
+
+
+
+	std::vector<int> vsort{ 4,1,0,1,-2,3,7,-6,2,0,0,-9,9 };
+	auto vcopy = vsort;
+	sort(begin(vcopy), end(vcopy));  // -9 -6 -2 0 0 0 1 1 2 3 4 7 9
+	vcopy = vsort;
+	sort(begin(vcopy), end(vcopy),
+	     [](int elem1, int elem2) { return elem1 > elem2; });  // 9 7 4 3 2 1 1 0 0 0 -2 -6 -9
+	vcopy = vsort;
+	sort(begin(vcopy), end(vcopy),     // -9 9 7 -6 4 3 -2 2 1 1 0 0 0
+	     [](int elem1, int elem2) { return abs(elem1) > abs(elem2); });
 
 	return 0;
 }
